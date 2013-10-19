@@ -23,24 +23,58 @@
 
 package edu.itcr.logictec.trees.binary;
 
-public class BinaryNode{
-    int data;
-    BinaryNode left, right;
-
-    public BinaryNode(int data) {
-        this.data = data;
+public class BinaryNode<K>{
+    private K data;
+    private BinaryNode<K> left, right;
+    
+    public BinaryNode() {
+        this.data = null;
         this.left = null;
         this.right = null;
     }
 
-    public BinaryNode(int data, BinaryNode left, BinaryNode rigth) {
-        this.data = data;
-        this.left = left;
-        this.right = rigth;
+    public BinaryNode(K pdata) {
+        this.data = pdata;
+        this.left = null;
+        this.right = null;
+    }
+    
+    public K getData(){
+    	return this.data;
+    }
+    
+    public BinaryNode<K> getLeft(){
+    	return this.left;
+    }
+    
+    public BinaryNode<K> getRight(){
+    	return this.right;
+    }
+    
+    public void setData(K pk){
+    	this.data = pk;
+    }
+    
+    public void setLeft(K pk){
+    	BinaryNode<K> left = new BinaryNode<K>(pk);
+    	this.left = left;
+    }
+    
+    public void setLeft(BinaryNode<K> pk){
+    	this.left = pk;
+    }
+    
+    public void setRight(K pk){
+    	BinaryNode<K> left = new BinaryNode<K>(pk);
+    	this.right = left;
+    }
+    
+    public void setRight(BinaryNode<K> pk){
+    	this.right = pk;
     }
 
     /* Recorridos */
-    void preorden (BinaryNode node){
+    void preorden (BinaryNode<K> node){
         if(node == null){
             return;
         }
@@ -49,7 +83,7 @@ public class BinaryNode{
         right.preorden(node.right);
     }
 
-    void inorden(BinaryNode node){
+    void inorden(BinaryNode<K> node){
         if(node == null){
             return;
         }
@@ -58,7 +92,7 @@ public class BinaryNode{
         right.inorden(node.right);
     }
 
-    void postorden(BinaryNode node){
+    void postorden(BinaryNode<K> node){
         if(node == null){
             return;
         }
