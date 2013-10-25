@@ -65,39 +65,43 @@ public class BinaryNode<K>{
     }
     
     public void setRight(K pk){
-    	BinaryNode<K> left = new BinaryNode<K>(pk);
-    	this.right = left;
+    	BinaryNode<K> right = new BinaryNode<K>(pk);
+    	this.right = right;
     }
     
     public void setRight(BinaryNode<K> pk){
     	this.right = pk;
     }
-
+    
     /* Recorridos */
-    void preorden (BinaryNode<K> node){
-        if(node == null){
-            return;
+    public void preorden (BinaryNode<K> node){
+        System.out.println(data);
+        if (node.left != null){
+        	left.preorden(node.left);
+        }
+        if (node.right != null){
+        	right.preorden(node.right);
+        }
+        
+    }
+    
+    public void inorden(BinaryNode<K> node){
+    	if (node.left != null){
+        	left.inorden(node.left);
         }
         System.out.println(data);
-        left.preorden(node.left);
-        right.preorden(node.right);
+        if (node.right != null){
+        	right.inorden(node.right);
+        }
     }
 
-    void inorden(BinaryNode<K> node){
-        if(node == null){
-            return;
-        }
-        left.inorden(node.left);
-        System.out.println(data);
-        right.inorden(node.right);
-    }
-
-    void postorden(BinaryNode<K> node){
-        if(node == null){
-            return;
-        }
-        left.postorden(node.left);
-        right.postorden(node.right);
+    public void postorden(BinaryNode<K> node){
+    	if (node.left != null){
+    		left.postorden(node.left);
+    	}
+    	if (node.right != null){
+    		right.postorden(node.right);
+    	}
         System.out.println(data);
     }
 }

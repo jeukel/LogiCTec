@@ -58,5 +58,8 @@ public class GateCreation {
 		System.out.println(gateand8.getExit());
 		
 		System.out.println("*****************************");
+		
+		gateand8.printGate();
+		
 	}
 }

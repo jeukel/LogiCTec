@@ -74,6 +74,10 @@ public class LogicGate<K>{
 		return this.root.getData();
 	}
 	
+	public void printGate(){
+		this.root.preorden(this.root);
+	}
+	
 	protected void setRoot(){
 		System.out.println("Nothing here :p");
 	}
