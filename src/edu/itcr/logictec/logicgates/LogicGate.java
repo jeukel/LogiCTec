@@ -24,9 +24,11 @@
 package edu.itcr.logictec.logicgates;
 
 import edu.itcr.logictec.trees.binary.BinaryNode;
+import edu.itcr.startec.datastructs.simplelist.SimpleList;
 
 public class LogicGate<K>{
     protected BinaryNode<K> root;
+    public SimpleList<K> list;
     
     public LogicGate(){
         this.root = null;
@@ -74,8 +76,14 @@ public class LogicGate<K>{
 		return this.root.getData();
 	}
 	
-	public void printGate(){
-		this.root.preorden(this.root);
+	public int[] printGate(){
+		this.root.preorden(this.root, list);
+		int[] array = new int[list.length()];
+		for(int i = 0 ; i > list.length() ; i++){ 
+			array[i] = (Integer) list.getRootData();
+			list.delete();
+		}
+		return array;
 	}
 	
 	protected void setRoot(){

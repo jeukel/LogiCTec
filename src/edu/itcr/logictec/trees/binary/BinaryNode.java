@@ -23,6 +23,8 @@
 
 package edu.itcr.logictec.trees.binary;
 
+import edu.itcr.startec.datastructs.simplelist.SimpleList;
+
 public class BinaryNode<K>{
     private K data;
     private BinaryNode<K> left, right;
@@ -74,13 +76,15 @@ public class BinaryNode<K>{
     }
     
     /* Recorridos */
-    public void preorden (BinaryNode<K> node){
+    public void preorden (BinaryNode<K> node, SimpleList<K> list){
+        
         System.out.println(data);
+        list.append(this.data);
         if (node.left != null){
-        	left.preorden(node.left);
+        	left.preorden(node.left, list);
         }
         if (node.right != null){
-        	right.preorden(node.right);
+        	right.preorden(node.right, list);
         }
         
     }
