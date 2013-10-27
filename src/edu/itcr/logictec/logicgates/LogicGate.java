@@ -32,6 +32,7 @@ public class LogicGate<K>{
     
     public LogicGate(){
         this.root = null;
+        this.list = new SimpleList<K>();
     }
 
     public LogicGate(BinaryNode<K> pnodeA, BinaryNode<K> pnodeB){
@@ -64,8 +65,7 @@ public class LogicGate<K>{
 			}
 			this.root.setRight(pdata);
 			setRoot();
-		}
-		
+		}		
 	}
 	
 	public BinaryNode<K> getRoot(){
@@ -77,13 +77,35 @@ public class LogicGate<K>{
 	}
 	
 	public int[] printGate(){
-		this.root.preorden(this.root, list);
+		preorden();
 		int[] array = new int[list.length()];
 		for(int i = 0 ; i > list.length() ; i++){ 
 			array[i] = (Integer) list.getRootData();
 			list.delete();
 		}
 		return array;
+	}
+	
+	public void preorden (){
+        System.out.println(this.root.getData());
+        list.append(this.root.getData());
+        if (this.root.getLeft() != null){
+        	preorden_extended(this.root.getLeft());
+        }
+        if (this.root.getRight() != null){
+        	preorden_extended(this.root.getRight());
+        }
+    }
+	
+	private void preorden_extended(BinaryNode<K> pnode){
+		System.out.println(pnode.getData());
+        list.append(pnode.getData());
+        if (pnode.getLeft() != null){
+        	preorden_extended(this.root.getLeft());
+        }
+        if (pnode.getRight() != null){
+        	preorden_extended(this.root.getRight());
+        }
 	}
 	
 	protected void setRoot(){

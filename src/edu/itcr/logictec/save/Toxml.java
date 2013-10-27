@@ -63,7 +63,7 @@ public class Toxml {
 	        TransformerFactory transformerFactory = TransformerFactory.newInstance();
 	        Transformer transformer = transformerFactory.newTransformer();
 	        DOMSource source = new DOMSource(doc);
-	        StreamResult result = new StreamResult(new File("NewComponent"));
+	        StreamResult result = new StreamResult(new File("NewComponent.xml"));
 	        System.out.println(source);
 
 	        transformer.transform(source, result);
