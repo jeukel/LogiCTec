@@ -79,7 +79,7 @@ public class LogicGate<K>{
 	public int[] printGate(){
 		preorden();
 		int[] array = new int[list.length()];
-		for(int i = 0 ; i > list.length() ; i++){ 
+		for(int i = 0 ; i < list.length() ; i++){
 			array[i] = (Integer) list.getRootData();
 			list.delete();
 		}
@@ -87,7 +87,7 @@ public class LogicGate<K>{
 	}
 	
 	public void preorden (){
-        System.out.println(this.root.getData());
+        //System.out.println(this.root.getData());
         list.append(this.root.getData());
         if (this.root.getLeft() != null){
         	preorden_extended(this.root.getLeft());
@@ -98,7 +98,7 @@ public class LogicGate<K>{
     }
 	
 	private void preorden_extended(BinaryNode<K> pnode){
-		System.out.println(pnode.getData());
+		//System.out.println(pnode.getData());
         list.append(pnode.getData());
         if (pnode.getLeft() != null){
         	preorden_extended(this.root.getLeft());

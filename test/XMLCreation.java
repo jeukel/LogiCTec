@@ -13,7 +13,7 @@ public class XMLCreation {
 		LogicGate<Integer> gateand0 = new And();
 		gateand0.setInA(1);
 		gateand0.setInB(1);
-		System.out.println(gateand0.getExit());		
+		//System.out.println(gateand0.getExit());		
 		
 		Toxml xml = new Toxml(gateand0.printGate());
 		xml.save();

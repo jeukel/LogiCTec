@@ -64,11 +64,12 @@ public class Toxml {
 	        Transformer transformer = transformerFactory.newTransformer();
 	        DOMSource source = new DOMSource(doc);
 	        StreamResult result = new StreamResult(new File("NewComponent.xml"));
-	        System.out.println(source);
+	        //System.out.println(source);
 
 	        transformer.transform(source, result);
 
 	        System.out.println("File saved!");
+	        this.exits++;
 
 	      } catch (ParserConfigurationException pce) {
 	        pce.printStackTrace();
